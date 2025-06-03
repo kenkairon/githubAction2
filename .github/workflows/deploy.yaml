@@ -1,18 +1,16 @@
 name: Deploy to server
 
 on: push
-  
-jobs: 
+
+jobs:
   first_job:
     runs-on: ubuntu-latest
-  
-  steps:
-    - name: Hola Mundo 2
-      run: echo "Hola Mundo 2"
+    steps:
+      - name: Hola Mundo 2
+        run: echo "cat Hola"
 
   second_job:
-    runs-on: ubuntu-latest  
-  
+    runs-on: ubuntu-latest
     steps:
       - name: Hola Mundo 3
         run: echo "Hola Mundo 3"
