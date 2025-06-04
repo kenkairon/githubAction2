@@ -18,6 +18,4 @@ jobs:
         run: echo "Mensaje: $MI_VARIABLE"
 
       - name: Hola Mundo 3
-        run: echo "Hola Mundo 3"
-
-    
+        run: echo "Hola Mundo 3"    
