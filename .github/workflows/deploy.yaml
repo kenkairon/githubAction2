@@ -19,5 +19,7 @@ jobs:
     needs: first_job
     runs-on: ubuntu-latest
     steps:
-      - name: Usar variable del primer job
-        run: echo "Mensaje recibido: ${{ needs.first_job.outputs.salida }}"
+      - name: Usar variable del primer job como ENV
+        env:
+          SALIDA: ${{ needs.first_job.outputs.salida }}
+        run: echo "Mensaje recibido: $SALIDA"
