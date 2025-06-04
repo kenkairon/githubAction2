@@ -15,7 +15,8 @@ jobs:
       - name: Mostrar variable
         env:
           MI_VARIABLE: "Hola desde el step"
-        run: echo "Mensaje: $MI_VARIABLE"
+        run: |
+          echo "Mensaje: ${MI_VARIABLE}"
 
       - name: Hola Mundo 3
-        run: echo "Hola Mundo 3"    
+        run: echo "Hola Mundo 3"
