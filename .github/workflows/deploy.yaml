@@ -5,21 +5,18 @@ on: push
 jobs:
   first_job:
     runs-on: ubuntu-latest
-    outputs:
-      salida: ${{ steps.step_1.outputs.my_variable }}  # este output es usado por el segundo job
     steps:
-      - name: Generar variable
-        id: step_1
-        run: echo "my_variable=Hola Mundo" >> "$GITHUB_OUTPUT"
-
-      - name: Mostrar variable local
-        run: echo "${{ steps.step_1.outputs.my_variable }}"
+      - name: Hola Mundo 2
+        run: echo "cat Hola"
 
   second_job:
-    needs: first_job
     runs-on: ubuntu-latest
     steps:
-      - name: Usar variable del primer job como ENV
+      - name: Mostrar variable
         env:
-          SALIDA: ${{ needs.first_job.outputs.salida }}
-        run: echo "Mensaje recibido: $SALIDA"
+          MI_VARIABLE: "Hola desde el step"
+        run: |
+          echo "Mensaje: ${MI_VARIABLE}"
+
+      - name: Hola Mundo 3
+        run: echo "Hola Mundo 3"
