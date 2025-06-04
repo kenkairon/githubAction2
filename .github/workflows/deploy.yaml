@@ -6,7 +6,7 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     outputs:
-      salida: ${{ steps.step_1.outputs.my_variable }}
+      salida: ${{ steps.step_1.outputs.my_variable }}  # este output es usado por el segundo job
     steps:
       - name: Generar variable
         id: step_1
@@ -18,8 +18,6 @@ jobs:
   second_job:
     needs: first_job
     runs-on: ubuntu-latest
-    env:
-      SALIDA: ${{ needs.first_job.outputs.salida }}
     steps:
       - name: Usar variable del primer job
-        run: echo "Mensaje recibido: $SALIDA"
+        run: echo "Mensaje recibido: ${{ needs.first_job.outputs.salida }}"
