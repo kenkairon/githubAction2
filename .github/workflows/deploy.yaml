@@ -12,6 +12,11 @@ jobs:
   second_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Mostrar variable
+        env:
+          MI_VARIABLE: "Hola desde el step"
+        run: echo "Mensaje: $MI_VARIABLE"
+
       - name: Hola Mundo 3
         run: echo "Hola Mundo 3"
 
